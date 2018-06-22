@@ -11,8 +11,11 @@ var getForecast = (latitude, longitude, callback) => {
             callback('Unable to connect to server.');
         } else if (response.statusCode === 400) {
             callback('Unable to fetch weather.');
-        } else {
-            callback(undefined, body);
+        } else if (response.statusCode === 200) {
+            callback(undefined, {
+                temperature:body.currently.temperature,
+                apparentTemperature:body.currently.apparentTemperature
+            });
         }
     });
 };
