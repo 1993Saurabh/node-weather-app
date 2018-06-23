@@ -23,7 +23,7 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
             if (error) {
                 console.log(error);
             } else {
-                console.log(jsonBody);
+                console.log(`It's currently ${jsonBody.temperature}. It feels like ${jsonBody.apparentTemperature}`);
             }
         });
     }
